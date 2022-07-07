@@ -27,36 +27,6 @@ public class EventHandlerGroup<Event> {
             }
         }
     }
-
-    /**
-     * Used with {@linkplain Sirector#after} class to imply the dependency
-     * between event handlers.
-     *
-     * The following example:
-     *
-     * <pre>
-     * sirector.after(eventHandlerA).then(eventHandlerB);
-     * </pre>
-     *
-     * means eventHandlerA must be called before eventHandlerB in the
-     * transaction type.
-     *
-     * <p>
-     * The method can be called many times.
-     * </p>
-     *
-     * @param eventHandlers
-     *            event handlers to depend other handlers
-     * @return the event transaction being composed
-     * @throws IllegalStateException
-     *             if event handler in the parameter is not added to the
-     *             transaction yet or <tt>ready()</tt> method of the same
-     *             sirector instance has been called.
-     *
-     *
-     * @see EventHandlerGroup#then(EventHandler...)
-     * @see Sirector#begin(EventHandler...)
-     */
     public EventHandlerGroup<Event> then(EventHandler<Event>... eventHandlers) {
         synchronized (script) {
             if (script.isReady()) {
