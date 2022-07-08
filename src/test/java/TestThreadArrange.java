@@ -21,7 +21,7 @@ public class TestThreadArrange {
         sirector.ready();
         //同步发布时间
         HelloWorldEvent event = sirector.publish(new HelloWorldEvent(), 10);
-        System.out.println("hello world are called" + event.callCount + "times");//
+       // System.out.println("hello world are called" + event.callCount + "times");//
         //Callback<HelloWorldEvent> alertCallback = new AlertCallback();
         //异步发布时间
         // sirector.publish(new HelloWorldEvent(),alertCallback);
